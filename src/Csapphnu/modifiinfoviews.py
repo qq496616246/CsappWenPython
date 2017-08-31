@@ -73,4 +73,4 @@ def updateinfo(request):
         addresult ='1'; #表示更新成功
     else:
         addresult = '2'
-    return HttpResponseRedirect("/modifyuserinfo/?issucess="+addresult) #重定向回去
+    return HttpResponseRedirect("/userinfomanagement/modifyuserinfo/?issucess="+addresult) #重定向回去

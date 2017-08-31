@@ -24,19 +24,19 @@ $(function () {
     //为图片设置点击事件（三张图）
     //个人信息模块
     $('#imgselete1').click(function () {
-       window.location = '/modifyuserinfo/'
+       window.location = '/userinfomanagement/modifyuserinfo/'
     })
     //学生课程分组(需要判断权限)
     $('#imgselete2').click(function () {
           //用ajax异步刷新页面
         $.ajax({
-            url:'/usertypeverification/',
+            url:'/userinfomanagement/usertypeverification/',
             async:true,
             type:"GET",
             data:{'currentmodeltype': 'grounpmodel'},
             success:function (data) {
                 if(data.result == 'success'){  //权限验证成功
-                     window.location = '/studentgrouping/'  ;
+                     window.location = '/userinfomanagement/studentgrouping/'  ;
                      alert("欢迎您访问该模块！")
                 }
                 else{
@@ -54,13 +54,13 @@ $(function () {
     $('#imgselete3').click(function () {
         //用ajax异步刷新页面
         $.ajax({
-            url: '/usertypeverification/',
+            url: '/userinfomanagement/usertypeverification/',
             async: true,
             type: "GET",
             data: {'currentmodeltype': 'assistantmange'},
             success: function (data) {
                 if (data.result == 'success') {  //权限验证成功
-                    window.location = '/assistantmanage/';
+                    window.location = '/userinfomanagement/assistantmanage/';
                     alert("欢迎您访问该模块！")
                 }
                 else {

@@ -123,7 +123,7 @@ $(function () {
                     //2:循环拼接需要的类型数据
                     $.each(data.data,function (i , m) {
                         var $std = $('<tr><td>'+m.uid +'</td><td>'+m.name+'</td><td>'+m.student_class_name+'</td>' +
-                            '<td>'+m.permission+'</td><td>'+m.contact+'</td><td><a href="#" id="updatatableinfostu" class="'+ m.uid +'">更新</a></td><td><a href="#" id="updatatableinfostu" class="'+m.uid+'">删除</a></td></tr>');
+                            '<td>'+m.permission+'</td><td>'+m.contact+'</td><td><a href="#" id="updatatableinfostu" class="'+ m.uid +'">更新</a></td><td><a href="#" id="deletetableinfostu" class="'+m.uid+'">删除</a></td></tr>');
                         //3.将表格内容添加到对应的table中
                         $std.appendTo('#studentbodyinfo');
                     })
@@ -188,7 +188,7 @@ $(function () {
                     //2:循环拼接需要的类型数据
                     $.each(data.data,function (i , m) {
                         var $std = $('<tr><td>'+m.uid +'</td><td>'+m.name+'</td><td>'+m.teacher_class_name+'</td>' +
-                            '<td>'+m.permission+'</td><td>'+m.contact+'</td><td><a href="#" id="updatatableinfotea" class="'+ m.uid +'">更新</a></td><td><a href="#" id="updatatableinfotea" class="'+m.uid+'">删除</a></td></tr>');
+                            '<td>'+m.permission+'</td><td>'+m.contact+'</td><td><a href="#" id="updatatableinfotea" class="'+ m.uid +'">更新</a></td><td><a href="#" id="deletetableinfotea" class="'+m.uid+'">删除</a></td></tr>');
                         //3.将表格内容添加到对应的table中
                         $std.appendTo('#teacherbodyinfo');
                     })
@@ -254,7 +254,7 @@ $(function () {
                     //2:循环拼接需要的类型数据
                     $.each(data.data,function (i , m) {
                         var $std = $('<tr><td>'+m.uid +'</td><td>'+m.name+'</td><td>'+m.student_class_name+'</td>' +
-                            '<td>'+m.permission+'</td><td>'+m.contact+'</td><td><a href="#" id="updatatableinfoass" class="'+ m.uid +'">更新</a></td><td><a href="#" id="updatatableinfoass" class="'+m.uid+'">删除</a></td></tr>');
+                            '<td>'+m.permission+'</td><td>'+m.contact+'</td><td><a href="#" id="updatatableinfoass" class="'+ m.uid +'">更新</a></td><td><a href="#" id="deletetableinfoass" class="'+m.uid+'">删除</a></td></tr>');
                         //3.将表格内容添加到对应的table中
                         $std.appendTo('#assistantbodyinfo');
                     })

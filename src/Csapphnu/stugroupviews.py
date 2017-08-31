@@ -105,7 +105,7 @@ def studentGrounpToDB(request):
               addstudentinfo.student_grounp = grounpNumber;
               addstudentinfo.save();
             everyNumber += 1;  # 操作个数+1
-    return  HttpResponseRedirect('/studentgrouping/?issuccess=1&classnumber='+ studentClass);
+    return  HttpResponseRedirect('/userinfomanagement/studentgrouping/?issuccess=1&classnumber='+ studentClass);
 
 #处理ajax的班级刷新操作（没用到这里）
 def reloadStudentClassAndName(request):

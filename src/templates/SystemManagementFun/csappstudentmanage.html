@@ -9,6 +9,7 @@
 </head>
 <!--引用资源-->
 <link rel="stylesheet" type="text/css" href="/static/MainPage/styles/style_btn.css">
+<link rel="stylesheet" type="text/css" href="/static/MainPage/styles/style.css">
 <link rel="stylesheet" type="text/css" href="/static/SystemManagementFun/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/static/SystemManagementFun/themes/icon.css">
 <link rel="stylesheet" type="text/css" href="/static/SystemManagementFun/css/managesystemcss.css">
@@ -42,8 +43,9 @@
     <div id="layoutID" style="width:700px;height:500px" class="easyui-layout" data-options="fit:true">
         <!-- 区域面板--北边 -->
         <div data-options="region:'north',split:true,border:true,iconCls:'icon-remove',collapsible:true"
-             style="height:60px;">
-            <h1  align="center">欢迎访问湖南大学Csapp信息管理平台</h1>
+             style="height:80px;">
+            <h1 align="center" style="font-size: 30px">欢迎访问湖南大学Csapp信息管理平台</h1>
+            <a href="/index" class="go-home" style="right:12px;float: right;">返回</a>
         </div>
         <!-- 区域面板--南边 -->
         <div data-options="region:'south',split:true" style="height:80px;">
@@ -279,15 +281,19 @@
                                 </tr>
                                 <tr>
                                     <td>姓名：</td>
-                                    <td><input id="username"  name="usernumber" /></td>
+                                    <td><input id="username"  name="username" /></td>
                                 </tr>
                                 <tr>
                                     <td>班级：</td>
                                     <td><input id="userclass"  name="userclass" /></td>
                                 </tr>
                             </table>
-                            <input type="button" value="注册"  style="font-size: 20px" id="regesterstu">
+                            <input type="button" value="注册"  style="font-size: 20px;width: 80px" id="regesterstu">
                         </form>
+                    <br><br>
+                    <div style="text-align: center">
+                        <label style="color: red;font-size: 18px">备注:填入的班级信息格式需要为标准格式</label><label style="color: #0b84fe;font-size: 18px">(专业缩写名称+年级班级+班字)</label><label style="color: red;font-size: 18px">;比如计科1501班，信息1501班，软件1501班等等</label>
+                    </div>
                 </div>
                  <!--添加老师的功能-->
                 <div title="添加老师信息" id="addteachertabsigle" class="addteachertab" >
@@ -311,6 +317,11 @@
                             </table>
                             <input type="button" value="注册"  style="font-size: 20px" id="regestertea">
                     </form>
+                    <br><br>
+                    <div style="text-align: center">
+                        <label style="color: red;font-size: 18px">备注:（1）填入所带班级信息格式需要为标准格式</label><label style="color: #0b84fe;font-size: 18px">(专业缩写名称+年级班级+班字)</label><label style="color: red;font-size: 18px">;比如计科1501班，信息1501班，软件1501班等等</label>
+                        <br><label style="color: red;font-size: 18px">（2）如果当前老师所带班级存在多个，则需要每个班级之间通过"-"(减)符号进行分割，比如计科1501班-计科1502班</label>
+                    </div>
                 </div>
                 <!--添加助教信息-->
                  <div title="添加助教信息" id="addassistanttabsigle" class="addteachertab"  >
@@ -332,51 +343,61 @@
                                     <td><input  id="userclass2" name="userclass" /></td>
                                 </tr>
                             </table>
-                            <input type="button" value="注册"  style="font-size: 20px" id="regesterass">
+                            <input type="button" value="注册"  style="font-size: 20px;width: 80px" id="regesterass">
                     </form>
+                     <br><br>
+                    <div style="text-align: center">
+                        <label style="color: red;font-size: 18px">备注:填入的助教所带班级信息格式需要为标准格式</label><label style="color: #0b84fe;font-size: 18px">(专业缩写名称+年级班级+班字)</label><label style="color: red;font-size: 18px">;比如计科1501班，信息1501班，软件1501班等等</label>
+                    </div>
                 </div>
             </div>
 
             <!--添加个批量添加信息的tabs模块，方便显示对应的内容-->
             <div id = "tableeasyuiaddmore" class="easyui-tabs functiontabmore" data-options="plain:true,border:false,fit:true" style="width: 500px;height: 250px;">
                 <!--添加学生的功能-->
-                <div title="添加学生信息" id="addstudenttabmore" class="addstudenttabmore" >
-                    <form action="/systemmanagement/addinfomationuser/" method="post" enctype="multipart/form-data">
+                <div title="添加学生信息" id="addstudenttabmore" class="addstudenttabmore" style="text-align: center">
+                    <form action="/systemmanagement/addinfomationuser/" method="post" enctype="multipart/form-data" >
                         {% csrf_token %}
                         <br>
-                        <label>请选择要添加学生的文件(Excl)</label><br>
+                        <lable style="font-size: 15px">请选择要添加<lable style="font-size: 20px;color: red">学生信息</lable>的文件(Excl)</lable><br><br>
                         <input type="hidden" name="addusertype" value="1">
-                        <input type="file" name='picl'><br>
-                        <input type="submit" value="上传" name="submit">
+                        <input type="file" name='picl' ><br><br>
+                        <input type="submit" value="上传" name="submit" style="width: 100px;color: red ;font-size: 18px">
                     </form>
                     <br><br><br><br>
-                    <h1 style="color: red">上传文件格式如图所示：(PS:Excl表格中，需要包含学号，姓名，班级头条目，顺序可以任意)</h1>
+                    <h1 style="color: #0b84fe;font-size: 18px">上传文件格式如图所示：</h1>
+                    <h1 style="color: red;font-size: 15px">(PS:Excl表格中，需要包含学号，姓名，班级头条目，顺序可以任意)</h1>
                     <img src="/static/SystemManagementFun/images/studentstyle.png" alt="上传文件格式(必须有学号，姓名，和班级)">    <!--标识上传的文件格式-->
                 </div>
                  <!--添加老师的功能-->
-                <div title="添加老师信息" id="addteachertabmore" class="addteachertabmore" >
-                    <form action="/systemmanagement/addinfomationuser/" method="post" enctype="multipart/form-data">
+                <div title="添加老师信息" id="addteachertabmore" class="addteachertabmore" style="text-align: center">
+                    <form action="/systemmanagement/addinfomationuser/" method="post" enctype="multipart/form-data" >
                         {% csrf_token %}
-                        <lab>请选择要添加老师信息的文件(Excl)</lab><br>
+                        <br>
+                        <lable style="font-size: 15px">请选择要添加<lable style="font-size: 20px;color: red">老师信息</lable>的文件(Excl)</lable><br><br>
                         <input type="hidden" name="addusertype" value="3">
-                        <input type="file" name='picl'><br>
-                        <input type="submit" value="上传" name="submit">
+                        <input type="file" name='picl'><br><br>
+                        <input type="submit" value="上传" name="submit" style="width: 100px;color: red ;font-size: 18px">
                     </form>
                     <br><br><br><br>
-                    <h1 style="color: red">上传文件格式如图所示：(PS:Excl表格中，需要包含工号，姓名，班级头条目，顺序可以任意，其中如果存在所带班级为多个，则班级之间用'-'分割；如果所带班级为一个，则不需要用分割符号分割)</h1>
+                    <h1 style="color: #0b84fe;font-size: 18px">上传文件格式如下图所示：</h1>
+                        <h1 style="color: red;font-size: 14px">(PS:(1)Excl表格中，需要包含工号，姓名，班级头条目，顺序可以任意，</h1>
+                        <h1 style="color: red;font-size: 14px">(2)如果存在所带班级为多个，则班级之间用'-'分割；如果所带班级为一个，则不需要用分割符号分割)</h1>
                     <img src="/static/SystemManagementFun/images/teacherstyle.png" alt="上传文件格式(必须有工号，姓名，和班级)">    <!--标识上传的文件格式-->
                 </div>
                 <!--添加助教的功能-->
-                <div title="添加助教信息" id="addassistanttabmore" class="addteachertabmore" >
+                <div title="添加助教信息" id="addassistanttabmore" class="addteachertabmore" style="text-align: center">
                     <form action="/systemmanagement/addinfomationuser/" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <lab>请选择要添加助教信息的文件(Excl)</lab><br>
+                        <br>
+                        <lable style="font-size: 15px">请选择要添加<lable style="font-size: 20px;color: red">助教信息</lable>的文件(Excl)</lable><br><br>
                         <input type="hidden" name="addusertype" value="2">
-                        <input type="file" name='picl'><br>
-                        <input type="submit" value="上传" name="submit">
+                        <input type="file" name='picl'><br><br>
+                        <input type="submit" value="上传" name="submit" style="width: 100px;color: red ;font-size: 18px">
                     </form>
                     <br><br><br><br>
-                    <h1 style="color: red">上传文件格式如图所示：(PS:Excl表格中，需要包含学号，姓名，班级头条目，顺序可以任意)</h1>
+                    <h1 style="color: #0b84fe;font-size: 18px">上传文件格式如图所示：</h1>
+                       <h1 style="color: red;font-size: 15px">(PS:Excl表格中，需要包含学号，姓名，班级头条目，顺序可以任意)</h1>
                     <img src="/static/SystemManagementFun/images/assistantstyle.png" alt="上传文件格式(必须有学号，姓名，和班级)">    <!--标识上传的文件格式-->
                 </div>
 

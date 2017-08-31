@@ -46,7 +46,7 @@ $(function() {
         var currentTeacherClass = new Array();  //当前老师所带的班级信息
         //ajax请求该老师对应所带的班级信息
         $.ajax({
-             url:'/requestclassnumber/',
+             url:'/userinfomanagement/requestclassnumber/',
              async:false,  //这里要变为同步，一定要，因为如果用异步请求，这会导致数据还没过来页面已经加载完了
              data:{'message':'1'},
              type:'GET',
@@ -114,7 +114,7 @@ $(function() {
     	 if(number >=1){
     		//将点击的索引号进行拼接，方便在后台进行处理获取表单提交的数据，进行页面表单提交跳转
              document.getElementById('tableinfoindex').value = str;  //封装好了选中的索引值
-             $('#addtable-form').attr({action: '/addassistantinfodb/'});
+             $('#addtable-form').attr({action: '/userinfomanagement/addassistantinfodb/'});
              $('#addtable-form').submit();
     	 }
     	 else{
@@ -166,7 +166,7 @@ $(function() {
      */
     function deleteOption() {
         //进行页面跳转
-        window.location = '/deletassistantinfodb/?deletenumber='+ deletNumber;
+        window.location = '/userinfomanagement/deletassistantinfodb/?deletenumber='+ deletNumber;
     }
 
     /**
@@ -190,7 +190,7 @@ $(function() {
         }
         //判断是否进行跳转
         if(isSuccess == true){
-             $('#updataInfo-form').attr( {action : '/updataassistantinfodb/'});
+             $('#updataInfo-form').attr( {action : '/userinfomanagement/updataassistantinfodb/'});
              $('#updataInfo-form').submit();
         }
     }

@@ -17,7 +17,7 @@ $(function () {
     //设置切换班级的模态框点击确定的事件
     $('#okselectbtn').click(function () {
         //传送点击的班级的信息过去后台，来获取内容。
-        window.location = '/studentgrouping/?classnumber='+ changeClassValue;
+        window.location = '/userinfomanagement/studentgrouping/?classnumber='+ changeClassValue;
         //用ajax异步刷新页面
         // $.ajax({
         //     url:'/studentclassandname/',
@@ -153,7 +153,7 @@ $(function () {
                     document.getElementById('studentSelectClass').value = changeClassValue;
                 }
                 //进行页面跳转
-                $('#submitgrounp-form').attr({action: '/studentgroupindodb/'});
+                $('#submitgrounp-form').attr({action: '/userinfomanagement/studentgroupindodb/'});
                 $('#submitgrounp-form').submit();
             }
         }

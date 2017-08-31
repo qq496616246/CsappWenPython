@@ -98,7 +98,7 @@ def addInfo(request):
     #执行添加数据到数据库操作，返回添加的数目
     successresult , allnumber= addAssistantInfo2DB(index ,request);
     #重定向到最初的显示页面
-    return HttpResponseRedirect('/assistantmanage/?addresult=' + str(successresult)+'&allnumber='+str(allnumber));
+    return HttpResponseRedirect('/userinfomanagement/assistantmanage/?addresult=' + str(successresult)+'&allnumber='+str(allnumber));
 
 #将传送过来的数据添加到数据库中
 def addAssistantInfo2DB(index , request):
@@ -166,7 +166,7 @@ def deleteInfo(request):
             del dictInfoDel[deletenumber];
             currentInfo.save();
             deleteResult.save();  #更新数据
-    return HttpResponseRedirect('/assistantmanage/?del='+ 'success'); #重定向回主页面
+    return HttpResponseRedirect('/userinfomanagement/assistantmanage/?del='+ 'success'); #重定向回主页面
 
 #进行更新操作
 def updataInfo(request):
@@ -191,7 +191,7 @@ def updataInfo(request):
             dictInfoDel[updataNumber] = updataName;
             currentInfo.save();
             updataresult.save();  # 更新数据
-    return HttpResponseRedirect('/assistantmanage/?upd='+ 'success');
+    return HttpResponseRedirect('/userinfomanagement/assistantmanage/?upd='+ 'success');
 
 #ajax请求得到当前老师所带的班级信息，用来动态生成选择框中的内容
 def getTeacherBelongClass(request):
